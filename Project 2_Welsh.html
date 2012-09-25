@@ -1,0 +1,94 @@
+ <!DOCTYPE HTML>
+ <html>
+ <!-- Miles D. Welsh
+ Introduction to Programming
+ Project 2 - My Game Version 0.2 -->
+ <head>
+ <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+ <meta name="author" content="Miles D. Welsh" />
+  <script>
+    var north=true;
+    var south=true;
+    var east=true;
+    var west=true;
+    var score=0;
+    function btn_North_click() {
+      if(north===true) {
+       score+=5;
+       north=false; 
+       }
+      var message="You see a door and try to open it. The door is locked you need a key to open it";
+      UpdateText(message);
+      
+    }
+    function btn_South_click() {
+      if(south===true) {
+        score+=5;
+        south=false;
+        }
+      var message="A clogged toilet, you see something sparkling on the bottom of the toilet";
+      UpdateText(message);
+     
+    }
+    function btn_West_click() {
+      if(west===true) {
+        score+=5;
+        west=false;
+        }
+      var message="A window. There appears to be a storm outside";
+      UpdateText(message);
+      
+    }
+    function btn_East_click() {
+      if(east===true) {
+        score+=5;
+        east=false;
+        }
+      var message="A sink with a mirror. You see your reflection in the mirror, you look tired.";
+      UpdateText(message);
+      
+    }
+    function btn_Score_click() {
+    UpdateText(score);
+    }
+    function UpdateText(msg) {
+      var miles= document.getElementById("start");
+      miles.value=msg+"\n"+ "\n"+ miles.value;
+      }
+ </script>
+ <title>My Game Version 0.2</title>
+ <style>
+    .footer {font-style: italic;}
+ </style>
+ </head>
+ <body>
+
+    <h1>Miles Welsh</h1>
+    <h2>Intro to Programming</h2>
+    <h3 class="footer">Escape the Hartford Mansion!</h3>
+  <br>
+  <textarea id="start" rows="8" cols="40">
+    You awake in a dark musty bathroom. You don't know where you are but you must escape!
+  </textarea>
+    <br>
+    <input type="button"
+      value="North"
+      onclick="btn_North_click();">
+    <input type="button"
+      value="South"
+      onclick="btn_South_click();">
+    <input type="button"
+      value="West"
+      onclick="btn_West_click();">
+    <input type="button"
+      value="East"
+      onclick="btn_East_click();">
+    <input type="button"
+      value="Score"
+      onclick="btn_Score_click();">
+      <br>
+    <p class="footer">
+    <a href="mailto:miles.welsh1@marist.edu">My Mailto Link</a>
+ </p>
+ </body>
+ </html>
