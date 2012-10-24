@@ -7,56 +7,186 @@
  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
  <meta name="author" content="Miles D. Welsh" />
   <script>
-    var north=true;
-    var south=true;
-    var east=true;
-    var west=true;
+  //placeholder names
+    var area1=true;
+    var area2=true;
+    var area3=true;
+    var area4=true;
+    var area5=true;
+    var currentLocation=0;
     var score=0;
-    function btn_North_click() {
-      if(north===true) {
-       score+=5;
-       north=false; 
-       }
-      var message="You see a door and try to open it. The door is locked you need a key to open it";
-      UpdateText(message);
-      
-    }
-    function btn_South_click() {
-      if(south===true) {
-        score+=5;
-        south=false;
+    
+    function movenorth() {
+      if (currentLocation===0) {
+          currentLocation=1;
+          areaone();
+          document.getElementById("button_West").disabled=true;
+          document.getElementById("button_East").disabled=true;
+            }
+       else if(currentLocation===1) {
+          currentLocation=5;
+          areafive();
+          document.getElementById("button_North").disabled=true;
+          document.getElementById("button_West").disabled=true;
+          document.getElementById("button_East").disabled=true;
+            }
+       else if(currentLocation===2) {
+          currentLocation=0;
+          areazero();
+          document.getElementById("button_North").disabled=false;
+          document.getElementById("button_West").disabled=false;
+          document.getElementById("button_East").disabled=false;
+          document.getElementById("button_South").disabled=false;
+          }
+     }
+     
+     function movesouth() {
+      if(currentLocation===0) {
+          currentLocation=2;
+          areatwo();
+          document.getElementById("button_South").disabled=true;
+          document.getElementById("button_West").disabled=true;
+          document.getElementById("button_East").disabled=true;
+          }
+        else if(currentLocation===1) {
+            currentLocation=0;
+            areazero();
+            document.getElementById("button_South").disabled=false;
+            document.getElementById("button_West").disabled=false;
+            document.getElementById("button_East").disabled=false;
+            document.getElementById("button_North").disabled=false;
+          }
+        else if(currentLocation===5) {
+            currentLocation=1;
+            areaone();
+            document.getElementById("button_West").disabled=true;
+            document.getElementById("button_East").disabled=true;
+            document.getElementById("button_North").disabled=false;
+            }
         }
+        
+     function movewest() {
+     if(currentLocation===0) {
+        currentLocation=3;
+        areathree();
+        document.getElementById("button_North").disabled=true;
+        document.getElementById("button_South").disabled=true;
+        document.getElementById("button_West").disabled=true;
+        }
+     else if(currentLocation===4) {
+        currentLocation=0;
+        areazero();
+        document.getElementById("button_North").disabled=false;
+        document.getElementById("button_South").disabled=false;
+        document.getElementById("button_West").disabled=false;
+        document.getElementById("button_East").disabled=false;
+        }
+      }
+      
+     function moveeast() {
+      if(currentLocation===0) {
+        currentLocation=4;
+        areafour();
+        document.getElementById("button_East").disabled=true;
+        document.getElementById("button_North").disabled=true;
+        document.getElementById("button_South").disabled=true;
+        }
+        else if(currentLocation===3) {
+          currentLocation=0;
+          areazero();
+          document.getElementById("button_North").disabled=false;
+          document.getElementById("button_South").disabled=false;
+          document.getElementById("button_East").disabled=false;
+          document.getElementById("button_West").disabled=false;
+          }
+       }
+    // starting location
+    function areazero() {
+      var message="You are in a dark musty bathroom";
+      UpdateText(message);
+        }
+    
+    //north of room
+    function areaone() {
+      if(area1===true) {
+       score+=5;
+       area1=false;
+        }
+      var message="A towel rack with a plunger on the side";
+      UpdateText(message);
+      currentLocation=1; 
+        }
+    
+    //south of room
+    function areatwo() {
+      if(area2===true) {
+        score+=5;
+        area2=false;
+          }
       var message="A clogged toilet, you see something sparkling on the bottom of the toilet";
       UpdateText(message);
-     
-    }
-    function btn_West_click() {
-      if(west===true) {
+      currentLocation=2;
+      }
+    //west of room
+    function areathree() {
+      if(area3===true) {
         score+=5;
-        west=false;
+        area3=false;
         }
       var message="A window. There appears to be a storm outside";
       UpdateText(message);
-      
-    }
-    function btn_East_click() {
-      if(east===true) {
+      currentLocation=3;
+      }
+    //east of room
+    function areafour() {
+      if(area4===true) {
         score+=5;
-        east=false;
-        }
+        area4=false;
+          }
       var message="A sink with a mirror. You see your reflection in the mirror, you look tired.";
       UpdateText(message);
-      
-    }
+      currentLocation=4;
+      }
+    //northwest of room
+    function areafive() {
+      if(area5===true) {
+        score+=5;
+        area5=false;
+          }
+      var message="You see a door and try to open it. The door is locked you need a key to open it";
+      UpdateText(message);
+      currentLocation=5
+      }
     function btn_Score_click() {
-    UpdateText(score);
+      UpdateText(score);
     }
+    
+    function btn_Go_click() {
+      var userInput=document.getElementById("txtInput").value;
+      if(userInput==="n" || userInput==="N") {
+          movenorth();
+        } else if (userInput==="e" || userInput==="E") {
+            moveeast();
+        } else if (userInput==="s" || userInput==="S") {
+            movesouth(); 
+        } else if (userInput==="w" || userInput==="W") {
+            movesouth();
+        }
+          else{
+            var message="This is not a valid command. The valid commands are N,S,E,W or n,s,e,w";
+            UpdateText(message);
+        } 
+    }
+    
     function UpdateText(msg) {
       var miles= document.getElementById("start");
       miles.value=msg+"\n"+ "\n"+ miles.value;
-      }
+    }
  </script>
- <title>My Game Version 0.2</title>
+ 
+ 
+ 
+ <title>My Game Version 0.4</title>
  <style>
     .footer {font-style: italic;}
  </style>
@@ -67,26 +197,36 @@
     <h2>Intro to Programming</h2>
     <h3 class="footer">Escape the Hartford Mansion!</h3>
   <br>
-  <textarea id="start" rows="8" cols="40">
-    You awake in a dark musty bathroom. You don't know where you are but you must escape!
+  <textarea id="start" rows="16" cols="40">
+    You are in a dark musty bathroom. You don't know where you are but you must escape!
   </textarea>
     <br>
+    <input type="text" id="txtInput">
+    <input type="button"
+      value="Go"
+      onclick="btn_Go_click();">
+      <br>
     <input type="button"
       value="North"
-      onclick="btn_North_click();">
+      id="button_North"
+      onclick="movenorth();">
     <input type="button"
       value="South"
-      onclick="btn_South_click();">
+      id="button_South"
+      onclick="movesouth();">
     <input type="button"
       value="West"
-      onclick="btn_West_click();">
+      id="button_West"
+      onclick="movewest();">
     <input type="button"
       value="East"
-      onclick="btn_East_click();">
+      id="button_East"
+      onclick="moveeast();">
     <input type="button"
       value="Score"
       onclick="btn_Score_click();">
-      <br>
+   
+         
     <p class="footer">
     <a href="mailto:miles.welsh1@marist.edu">My Mailto Link</a>
  </p>
