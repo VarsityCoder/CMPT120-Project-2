@@ -13,6 +13,10 @@
     var area3=true;
     var area4=true;
     var area5=true;
+    var area6=true;
+    var area7=true;
+    var area8=true;
+    var area9=true;
     var currentLocation=0;
     var score=0;
     
@@ -20,23 +24,23 @@
       if (currentLocation===0) {
           currentLocation=1;
           areaone();
-          document.getElementById("button_West").disabled=true;
-          document.getElementById("button_East").disabled=true;
+            document.getElementById("button_West").disabled=true;
+            document.getElementById("button_East").disabled=true;
             }
        else if(currentLocation===1) {
           currentLocation=5;
           areafive();
-          document.getElementById("button_North").disabled=true;
-          document.getElementById("button_West").disabled=true;
-          document.getElementById("button_East").disabled=true;
+            document.getElementById("button_North").disabled=true;
+            document.getElementById("button_West").disabled=true;
+            document.getElementById("button_East").disabled=true;
             }
        else if(currentLocation===2) {
           currentLocation=0;
           areazero();
-          document.getElementById("button_North").disabled=false;
-          document.getElementById("button_West").disabled=false;
-          document.getElementById("button_East").disabled=false;
-          document.getElementById("button_South").disabled=false;
+            document.getElementById("button_North").disabled=false;
+            document.getElementById("button_West").disabled=false;
+            document.getElementById("button_East").disabled=false;
+            document.getElementById("button_South").disabled=false;
           }
      }
      
@@ -44,10 +48,10 @@
       if(currentLocation===0) {
           currentLocation=2;
           areatwo();
-          document.getElementById("button_South").disabled=true;
-          document.getElementById("button_West").disabled=true;
-          document.getElementById("button_East").disabled=true;
-          }
+            document.getElementById("button_South").disabled=true;
+            document.getElementById("button_West").disabled=true;
+            document.getElementById("button_East").disabled=true;
+            }
         else if(currentLocation===1) {
             currentLocation=0;
             areazero();
@@ -55,7 +59,7 @@
             document.getElementById("button_West").disabled=false;
             document.getElementById("button_East").disabled=false;
             document.getElementById("button_North").disabled=false;
-          }
+            }
         else if(currentLocation===5) {
             currentLocation=1;
             areaone();
@@ -69,28 +73,28 @@
      if(currentLocation===0) {
         currentLocation=3;
         areathree();
-        document.getElementById("button_North").disabled=true;
-        document.getElementById("button_South").disabled=true;
-        document.getElementById("button_West").disabled=true;
-        }
+          document.getElementById("button_North").disabled=true;
+          document.getElementById("button_South").disabled=true;
+          document.getElementById("button_West").disabled=true;
+          }
      else if(currentLocation===4) {
         currentLocation=0;
         areazero();
-        document.getElementById("button_North").disabled=false;
-        document.getElementById("button_South").disabled=false;
-        document.getElementById("button_West").disabled=false;
-        document.getElementById("button_East").disabled=false;
-        }
+          document.getElementById("button_North").disabled=false;
+          document.getElementById("button_South").disabled=false;
+          document.getElementById("button_West").disabled=false;
+          document.getElementById("button_East").disabled=false;
+          }
       }
       
      function moveeast() {
       if(currentLocation===0) {
         currentLocation=4;
         areafour();
-        document.getElementById("button_East").disabled=true;
-        document.getElementById("button_North").disabled=true;
-        document.getElementById("button_South").disabled=true;
-        }
+          document.getElementById("button_East").disabled=true;
+          document.getElementById("button_North").disabled=true;
+          document.getElementById("button_South").disabled=true;
+          }
         else if(currentLocation===3) {
           currentLocation=0;
           areazero();
@@ -98,7 +102,7 @@
           document.getElementById("button_South").disabled=false;
           document.getElementById("button_East").disabled=false;
           document.getElementById("button_West").disabled=false;
-          }
+            }
        }
     // starting location
     function areazero() {
@@ -115,7 +119,7 @@
       var message="A towel rack with a plunger on the side";
       UpdateText(message);
       currentLocation=1; 
-        }
+       }
     
     //south of room
     function areatwo() {
@@ -156,6 +160,32 @@
       var message="You see a door and try to open it. The door is locked you need a key to open it";
       UpdateText(message);
       currentLocation=5
+        }
+     function areasix() { 
+      if(area6===true) {
+        score+=5;
+        area6=false;
+        }
+      }
+      
+     function areaseven() {
+      if(area7===true) {
+        score+=5;
+        area7=false;
+        }
+      var message
+      }
+     function areaeight() {
+      if(area8===true) {
+        score+=5;
+        area8=false;
+        }
+      }
+     function areanine() {
+      if(area9===true) {
+        score+=5;
+        area9=false;
+        }
       }
     function btn_Score_click() {
       UpdateText(score);
