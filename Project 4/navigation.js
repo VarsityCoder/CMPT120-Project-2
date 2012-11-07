@@ -1,4 +1,5 @@
     var currentLocation=0;
+    
     function WrongWay() {
       var message="You cannot go this way";
       UpdateText(message);
@@ -6,7 +7,8 @@
     function movenorth() {
       if (currentLocation===0) {
           currentLocation=1;
-          TowelRack();
+          updateLocation();
+          //TowelRack();
             document.getElementById("button_West").disabled=true;
             document.getElementById("button_East").disabled=true;
             document.getElementById("button_North").disabled=false;
@@ -14,7 +16,8 @@
             }
        else if(currentLocation===1) {
           currentLocation=5;
-          LockedDoor();
+          updateLocation();
+          //LockedDoor();
             document.getElementById("button_North").disabled=true;
             document.getElementById("button_West").disabled=true;
             document.getElementById("button_East").disabled=true;
@@ -22,7 +25,8 @@
             }
        else if(currentLocation===2) {
           currentLocation=0;
-          DarkMustyBathroom();
+          updateLocation();
+          //DarkMustyBathroom();
             document.getElementById("button_North").disabled=false;
             document.getElementById("button_West").disabled=false;
             document.getElementById("button_East").disabled=false;
@@ -30,7 +34,8 @@
           }
        else if(currentLocation===3) {
         currentLocation=6;
-        Grove();
+        updateLocation();
+        //Grove();
           document.getElementById("button_West").disabled=true;
           document.getElementById("button_East").disabled=true;
           document.getElementById("button_North").disabled=false;
@@ -38,7 +43,8 @@
         }
        else if(currentLocation===6) {
         currentLocation=7
-        GraveStone();
+        updateLocation();
+        //GraveStone();
           document.getElementById("button_North").disabled=true;
           document.getElementById("button_South").disabled=false;
           document.getElementById("button_East").disabled=true;
@@ -46,7 +52,8 @@
         }
        else if(currentLocation===8) {
         currentLocation=3
-        TwoDoors();
+        updateLocation();
+        //TwoDoors();
           document.getElementById("button_North").disabled=false;
           document.getElementById("button_South").disabled=false;
           document.getElementById("button_East").disabled=false;
@@ -69,7 +76,8 @@
      function movesouth() {
       if(currentLocation===0) {
           currentLocation=2;
-          CloggedToilet();
+          updateLocation();
+          //CloggedToilet();
             document.getElementById("button_South").disabled=true;
             document.getElementById("button_West").disabled=true;
             document.getElementById("button_East").disabled=true;
@@ -77,7 +85,8 @@
             }
         else if(currentLocation===1) {
             currentLocation=0;
-            DarkMustyBathroom();
+            updateLocation();
+            //DarkMustyBathroom();
             document.getElementById("button_South").disabled=false;
             document.getElementById("button_West").disabled=false;
             document.getElementById("button_East").disabled=false;
@@ -85,7 +94,8 @@
             }
         else if(currentLocation===5) {
             currentLocation=1;
-            TowelRack();
+            updateLocation();
+            //TowelRack();
             document.getElementById("button_West").disabled=true;
             document.getElementById("button_East").disabled=true;
             document.getElementById("button_North").disabled=false;
@@ -93,7 +103,8 @@
             }
          else if(currentLocation===3) {
           currentLocation=8;
-          Garden();
+          updateLocation();
+          //Garden();
           document.getElementById("button_North").disabled=false;
           document.getElementById("button_East").disabled=true;
           document.getElementById("button_West").disabled=false;
@@ -101,7 +112,8 @@
           }
          else if(currentLocation===6) {
           currentLocation=3;
-          TwoDoors();
+          updateLocation();
+          //TwoDoors();
           document.getElementById("button_North").disabled=false;
           document.getElementById("button_South").disabled=false;
           document.getElementById("button_West").disabled=false;
@@ -109,7 +121,8 @@
           }
          else if(currentLocation===7) {
           currentLocation=6;
-          Grove();
+          updateLocation();
+         //Grove();
           document.getElementById("button_North").disabled=false;
           document.getElementById("button_West").disabled=true;
           document.getElementById("button_South").disabled=false;
@@ -131,7 +144,8 @@
      function movewest() {
      if(currentLocation===0) {
         currentLocation=3;
-        TwoDoors();
+        updateLocation();
+        //TwoDoors();
           document.getElementById("button_North").disabled=false;
           document.getElementById("button_South").disabled=false;
           document.getElementById("button_West").disabled=true;
@@ -139,7 +153,8 @@
      }
      else if(currentLocation===4) {
         currentLocation=0;
-        DarkMustyBathroom();
+        updateLocation();
+        //DarkMustyBathroom();
           document.getElementById("button_North").disabled=false;
           document.getElementById("button_South").disabled=false;
           document.getElementById("button_West").disabled=false;
@@ -147,7 +162,8 @@
      }
      else if(currentLocation===8) {
       currentLocation=9;
-      Shed();
+      updateLocation();
+      //Shed();
           document.getElementById("button_North").disabled=true;
           document.getElementById("button_West").disabled=true;
           document.getElementById("button_South").disabled=true;
@@ -179,7 +195,8 @@
      function moveeast() {
       if(currentLocation===0) {
         currentLocation=4;
-        Sink();
+        updateLocation();
+        //Sink();
           document.getElementById("button_East").disabled=true;
           document.getElementById("button_North").disabled=true;
           document.getElementById("button_South").disabled=true;
@@ -187,7 +204,8 @@
           }
         else if(currentLocation===3) {
           currentLocation=0;
-          DarkMustyBathroom();
+          updateLocation();
+          //DarkMustyBathroom();
           document.getElementById("button_North").disabled=false;
           document.getElementById("button_South").disabled=false;
           document.getElementById("button_East").disabled=false;
@@ -195,7 +213,8 @@
             }
         else if(currentLocation===9) {
           currentLocation=8;
-          Garden();
+          updateLocation();
+          //Garden();
           document.getElementById("button_North").disabled=false;
           document.getElementById("button_West").disabled=false;
           document.getElementById("button_South").disabled=true;
@@ -227,4 +246,28 @@
         var message="The valid commands are N,S,E,W or n,s,e,w. There are also the help/Help and take. Make sure you visit all the locations to get all the points!";
         UpdateText(message);
         }
-
+function updateLocation() {
+  switch (currentLocation)
+{
+  case 0:DarkMustyBathroom(); 
+    break;
+  case 1:TowelRack();
+    break;
+  case 2:CloggedToilet();
+    break;
+  case 3:TwoDoors();
+    break;
+  case 4:Sink();
+    break;
+  case 5:LockedDoor();
+    break;
+  case 6:Grove();
+    break;
+  case 7:GraveStone();
+    break;
+  case 8:Garden();
+    break;
+  case 9:Shed();
+    break;
+  }
+}

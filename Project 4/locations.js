@@ -1,5 +1,6 @@
     var PlayerHasPlunger=false;
     var PlayerHasKey=false;
+    
       function PlayerTakePlunger() {
       if(currentLocation===1 && PlayerHasPlunger===false) {
         var Plunger="You take the plunger";
@@ -33,8 +34,8 @@
         }
     }
     function UpdateText(msg) {
-      var miles = document.getElementById("start");
-      miles.value=msg+"\n"+ "\n"+ miles.value;
+      var someNewName = document.getElementById("start");
+      someNewName.value=msg+"\n"+ "\n"+ someNewName.value;
       }
     // starting location
     function DarkMustyBathroom() {
