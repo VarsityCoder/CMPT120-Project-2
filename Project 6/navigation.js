@@ -1,4 +1,14 @@
-    var north=0;
+    var area1=true;
+    var area2=true;
+    var area3=true;
+    var area4=true;
+    var area5=true;
+    var area6=true;
+    var area7=true;
+    var area8=true;
+    var area9=true;
+    var currentLocation=0;
+    var score=0;    var north=0;
     var south=1;
     var east=2;
     var west=3;
