@@ -1,6 +1,6 @@
     var PlayerHasPlunger=false;
-    var PlayerHasKey=false;
-    var PlayerHasNote=false;
+    var PlayerHasDiamond=false;
+    var PlayerHasCoin=false;
     var PlayerHasRing=false;
     
       function PlayerTakePlunger() {
@@ -12,44 +12,67 @@
         UpdateText(item[0].taken);
        }
      }
-    function PlayerTakeKey() {
-        if(currentLocation===2 && PlayerHasKey===false) {
-          PlayerHasKey=true;
+    function PlayerTakeDiamond() {
+        if(currentLocation===2 && PlayerHasDiamond===true) {
+         UpdateText(item[1].taken);
+         }
+        else if(currentLocation===2 && PlayerHasPlunger===true) {
+          PlayerHasDiamond=true;
           UpdateText(item[1].notTaken);
-        }
-      else if(currentLocation===2 && PlayerHasKey===true) {
-        UpdateText(item[1].taken);
+         }
+        if(currentLocation===2 && PlayerHasPlunger===false) {
+        var msg="You cannot get the sparkling thing without the plunger";
+        UpdateText(msg);
         }
     }
-    function PlayerTakeNote() {
-      if(currentLocation===7 && PlayerHasNote===false) {
-        UpdateText(item[2].notTaken);
-        PlayerHasNote=true;
-        }
-      else if(currentLocation===7 && PlayerHasNote===true) {
+    function PlayerTakeCoin() {
+      if(currentLocation===7 && PlayerHasCoin===true) {
         UpdateText(item[2].taken);
+        }
+      else if(currentLocation===7 && PlayerHasRing===true) {
+        UpdateText(item[2].notTaken);
+        PlayerHasCoin=true;
+        }
+    
+      if(currentLocation===7 && PlayerHasRing===false) {
+        var msg="You cannot get the coin without the ring";
+        UpdateText(msg);
         }
     }
     function PlayerTakeRing() {
-      if(currentLocation===8 && PlayerHasRing===false) {
+      if(currentLocation===8 && PlayerHasRing===true) {
+        UpdateText(item[3].taken);
+        }
+      else if(currentLocation===8 && PlayerHasDiamond===true) {
         UpdateText(item[3].notTaken);
         PlayerHasRing=true;
         }
-      else if(currentLocation===8 && PlayerHasRing===true) {
-        UpdateText(item[3].taken);
+
+      if(currentLocation===8 && PlayerHasDiamond===false) {
+        var msg="You cannot get the ring without the Diamond";
+        UpdateText(msg);
         }
     }
-      
+    function WinGame() {
+      if(currentLocation===9 && PlayerHasCoin===true) {
+        var msg="You have won the game! Reload page to restart";
+        UpdateText(msg);
+        }
+      else{
+        var msg="Yeah right! Keep Trying!";
+        UpdateText(msg);
+        }
+    }
     function Inventory() {
       var InventoryStarter="Inventory: ";
       UpdateText(InventoryStarter);
       if(PlayerHasPlunger===true) {
         UpdateText(item[0].description);
         }
-      if(PlayerHasKey===true) {
+      if(PlayerHasDiamond===true) {
         UpdateText(item[1].description);
         }
-      if(PlayerHasNote===true) {
+      if(PlayerHasCoin===true) {
         UpdateText(item[2].description)
         }
       if(PlayerHasRing===true) {

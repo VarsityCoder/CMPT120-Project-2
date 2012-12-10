@@ -44,21 +44,24 @@
         }
           else if(userInput==="take" || userInput==="Take") {
             PlayerTakePlunger();
-            PlayerTakeKey();
-            PlayerTakeNote();
+            PlayerTakeDiamond();
+            PlayerTakeCoin();
             PlayerTakeRing();
             }
           else if(userInput==="i" || userInput==="I") {
             Inventory();
         }
+          else if(userInput==="win" || userInput==="Win") {
+            WinGame();
+            }
           else{
-            var message="This is not a valid command. The valid commands are N,S,E,W or n,s,e,w";
+            var message="This is not a valid command. The valid commands are N,S,E,W or n,s,e,w. There is also take/Take, help/help and win/Win";
             UpdateText(message);
         } 
     }
     
  </script>
- <title>My Game Version 0.8</title>
+ <title>My Game Version 1.0</title>
  <style>
     .footer {font-style: italic;}
  </style>
@@ -81,19 +84,19 @@
     <input type="button"
       value="North"
       id="button_North"
-      onclick="movenorth();">
+      onclick="move(north);">
     <input type="button"
       value="South"
       id="button_South"
-      onclick="movesouth();">
+      onclick="move(south);">
     <input type="button"
       value="West"
       id="button_West"
-      onclick="movewest();">
+      onclick="move(west);">
     <input type="button"
       value="East"
       id="button_East"
-      onclick="moveeast();">
+      onclick="move(east);">
     <input type="button"
       value="Score"
       onclick="btn_Score_click();">
